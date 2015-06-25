@@ -71,15 +71,16 @@ public class EarthquakeUpdateService extends Service {
 
             alarmManager.cancel(alarmIntent);
 
-            Thread t = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    refreshEarthquakes();
-                }
-            });
-
-            t.start();
         }
+
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                refreshEarthquakes();
+            }
+        });
+
+        t.start();
 
         return Service.START_NOT_STICKY;
     }
